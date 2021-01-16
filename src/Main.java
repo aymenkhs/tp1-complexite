@@ -68,11 +68,19 @@ public class Main
         duration = (endTime - startTime);
         System.out.println("Le resultats obtenue pour la boucle do est : " + do_result + "\nLe temps necessaire est : " + duration);
 
-        startTime = System.nanoTime();
-        double rec_result = rec_sum(n);
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
-        System.out.println("Le resultats obtenue pour la recursivité est : " + rec_result + "\nLe temps necessaire est : " + duration);
+
+        try {
+            startTime = System.nanoTime();
+            double rec_result = rec_sum(n);
+            endTime = System.nanoTime();
+            duration = (endTime - startTime);
+            System.out.println("Le resultats obtenue pour la recursivité est : " + rec_result + "\nLe temps necessaire est : " + duration);
+        }
+        catch(java.lang.StackOverflowError e) {
+            System.out.println("Le resultats n'a pas pu etre obtenue pour la recursivité a cause du depth recursion limite Le temps necessaire est indeterminer");
+        }
+
+
 
     }
 
